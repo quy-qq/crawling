@@ -1,4 +1,4 @@
-import { Controller, Get, Param, Query } from '@nestjs/common';
+import { Controller, Get, Param, Post, Query } from '@nestjs/common';
 import { CrawlerService } from './crawler.service';
 import { ApiTags } from '@nestjs/swagger';
 import { CreateCrawlerDto } from './dto/create-crawler.dto';
