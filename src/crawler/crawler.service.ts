@@ -2,10 +2,13 @@ import { Injectable } from '@nestjs/common';
 import { HttpService } from '@nestjs/axios';
 import * as puppeteer from 'puppeteer';
 import { CreateCrawlerDto } from './dto/create-crawler.dto';
+import TeamSchema, { Team } from 'src/common/database/teams.schema';
+import { Model } from 'mongoose';
+import { InjectModel } from '@nestjs/mongoose';
 
 @Injectable()
 export class CrawlerService {
-  constructor() {}
+  constructor(@InjectModel(Team.name) private teamModel: Model<Team>) {}
 
   async crawl(createCrawlerDto: CreateCrawlerDto) {
     const browser = await puppeteer.launch();
