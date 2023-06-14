@@ -8,7 +8,25 @@ export class Race {
   _id: string;
 
   @Prop({ type: String, required: true })
-  name: string;
+  grandPrix: string;
+
+  @Prop({ type: String, required: true })
+  date: string;
+
+  @Prop({ type: String, required: true })
+  winner: string;
+
+  @Prop({ type: String, required: true })
+  carName: string;
+
+  @Prop({ type: Number, required: true })
+  laps: number;
+
+  @Prop({ type: String, required: true })
+  time: string;
+
+  @Prop({ type: Number, required: true })
+  year: number;
 
   @Prop({
     type: Date,

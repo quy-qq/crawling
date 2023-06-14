@@ -1,23 +1,29 @@
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
-export type DriverDocument = Driver & Document;
+export type RaceResultDocument = RaceResult & Document;
 
 @Schema({
-  collection: 'Driver',
+  collection: 'RaceResult',
 })
-export class Driver {
+export class RaceResult {
   _id: string;
 
   @Prop({ type: Number, required: true })
   pos: number;
 
-  @Prop({ type: String, required: true })
-  name: string;
+  @Prop({ type: Number, required: true })
+  no: number;
 
   @Prop({ type: String, required: true })
-  nationality: string;
+  driver: string;
 
   @Prop({ type: String, required: true })
   carName: string;
+
+  @Prop({ type: Number, required: true })
+  laps: number;
+
+  @Prop({ type: String, required: true })
+  time: string;
 
   @Prop({ type: Number, required: true })
   pts: number;
@@ -37,5 +43,5 @@ export class Driver {
   })
   updatedAt: Date;
 }
-const DriverSchema = SchemaFactory.createForClass(Driver);
-export default DriverSchema;
+const RaceResultSchema = SchemaFactory.createForClass(RaceResult);
+export default RaceResultSchema;

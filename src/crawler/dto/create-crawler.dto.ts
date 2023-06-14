@@ -21,3 +21,45 @@ export class CreateCrawlerDto {
   @IsEnum(['races', 'drives', 'team'])
   type: string;
 }
+
+export class NumberCountryDto {
+  @ApiProperty({
+    description: 'Year',
+    example: '2023',
+    type: String,
+  })
+  @Allow()
+  @IsString()
+  year: string;
+
+  @ApiProperty({
+    description: 'Country',
+    enum: [
+      'bahrain',
+      'saudi-arabia',
+      'australia',
+      'azerbaijan',
+      'miami',
+      'monaco',
+      'spain',
+    ],
+  })
+  @Allow()
+  @IsString()
+  @IsNotEmpty()
+  @IsEnum([
+    'bahrain',
+    'saudi-arabia',
+    'australia',
+    'azerbaijan',
+    'miami',
+    'monaco',
+    'spain',
+  ])
+  valueCountry: string;
+
+  @Allow()
+  @IsNotEmpty()
+  @IsString()
+  type: string;
+}

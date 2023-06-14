@@ -1,7 +1,7 @@
 import { Controller, Get, Param, Post, Query } from '@nestjs/common';
 import { CrawlerService } from './crawler.service';
 import { ApiTags } from '@nestjs/swagger';
-import { CreateCrawlerDto } from './dto/create-crawler.dto';
+import { CreateCrawlerDto, NumberCountryDto } from './dto/create-crawler.dto';
 
 @ApiTags('Type Crawl')
 @Controller('crawl')
@@ -10,6 +10,12 @@ export class CrawlController {
 
   @Get()
   async crawl(@Query() createCrawlerDto: CreateCrawlerDto) {
+    const titles = await this.crawlerService.crawl(createCrawlerDto);
+    return titles;
+  }
+  @Get('race-result')
+  async crawlRaceResult(@Query() createCrawlerDto: NumberCountryDto) {
+    createCrawlerDto.type = 'race-result';
     const titles = await this.crawlerService.crawl(createCrawlerDto);
     return titles;
   }
