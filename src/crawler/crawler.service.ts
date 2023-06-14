@@ -187,13 +187,4 @@ export class CrawlerService {
     console.log(data);
     return await this.raceResultModel.create(data);
   }
-
-  async getKeyAndValueByValue(object, value) {
-    for (const [key, val] of Object.entries(object)) {
-      if (val === value) {
-        return { key, value: val };
-      }
-    }
-    return null;
-  }
 }
