@@ -19,6 +19,8 @@ import { NumberCountry } from 'src/common/constrains/number-country';
 import { TeamResponse } from 'src/common/interface/response/crawling.i.response';
 import { RaceResultRepository } from 'src/common/repository/race-result.repository';
 import { CrawlFilterDto } from './dto/crawler.filter.dto';
+import { ExceptionsHandler } from '@nestjs/core/exceptions/exceptions-handler';
+import { BaseExceptionFilter } from '@nestjs/core';
 
 @Injectable()
 export class CrawlerService {
@@ -174,11 +176,7 @@ export class CrawlerService {
     }
   }
 
-  async raceResuts(
-    page: puppeteer.Page,
-    years: string,
-    valueCountry: string,
-  ): Promise<any> {
+  async raceResuts(page: puppeteer.Page, years: string, valueCountry: string) {
     const data = await page.evaluate(
       (years, valueCountry) => {
         const tableRows = Array.from(
@@ -187,6 +185,9 @@ export class CrawlerService {
         const results = tableRows.map((row) => {
           const pos = row.querySelector('td:nth-child(2)').textContent.trim();
           const no = row.querySelector('td:nth-child(3)').textContent.trim();
+          if (!Number(no)) {
+            throw new BaseExceptionFilter();
+          }
           const driver = row
             .querySelector('td:nth-child(4)')
             .textContent.replace(/\s+/g, ' ')
@@ -197,6 +198,7 @@ export class CrawlerService {
           const laps = row.querySelector('td:nth-child(6)').textContent.trim();
           const time = row.querySelector('td:nth-child(7)').textContent.trim();
           const pts = row.querySelector('td:nth-child(8)').textContent.trim();
+
           return {
             grandPrix: valueCountry,
             pos: Number(pos) || 0,
