@@ -6,6 +6,12 @@ $ version npm:9.7.1
 $ npm install
 ```
 
+## DATABASE
+
+```bash
+$ mongodb+srv://quynguyen:123123123@interview.jspzsau.mongodb.net/
+```
+
 ## Running the app
 
 ```bash
@@ -22,18 +28,18 @@ $ npm run start:prod
 ## APIS
 
 ```bash
-# crawling bye races
+# crawling races
 $ http://localhost:3000/crawl/crawling-type?year=2023&type=races
 
-# crawling bye drivers
+# crawling drivers
 $ http://localhost:3000/crawl/crawling-type?year=2023&type=drivers
 
 # crawling teams
 $ http://localhost:3000/crawl/crawling-type?year=2023&type=team
 
 
-#crawling race result, Currently race result only crawling 2023
-$ http://localhost:3000/crawl/crawling-type?year=2023&type=races
+#crawling race result, Currently race result of race only crawling 2023
+$ http://localhost:3000/crawl/race-result?year=2023&valueCountry=australia
 
 # API Search by year, driver, team, race
 $ http://localhost:3000/crawl?page=1&limit=20&keyword=RED%20BULL%20RACING%20HONDA%20RBPT
