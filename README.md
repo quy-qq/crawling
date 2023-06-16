@@ -50,7 +50,7 @@ $ http://localhost:3000/crawl?page=1&limit=20&keyword=RED%20BULL%20RACING%20HOND
 
 ```bash
 
-# Để hiểu ra hơn trực quan hơn về API thì em đã làm cái DocApi bằng swagger để cho a chị tiện xem, sau khi clone src về và run xong thì a chị có thể mở link này
+# Để hiểu rõ hơn trực quan hơn về API thì em đã làm DocApi bằng swagger để cho a chị tiện xem, sau khi clone src về và run xong thì a chị có thể mở link này
 $ http://localhost:3000/api
 
 
