@@ -4,7 +4,7 @@ import { Allow, IsEnum, IsIn, IsNotEmpty, IsString } from 'class-validator';
 export class CreateCrawlerDto {
   @ApiProperty({
     description: 'Year',
-    example: '2022',
+    example: '2023',
     type: String,
   })
   @Allow()
@@ -18,7 +18,7 @@ export class CreateCrawlerDto {
   @Allow()
   @IsString()
   @IsNotEmpty()
-  @IsEnum(['races', 'drives', 'team'])
+  @IsEnum(['races', 'drivers', 'team'])
   type: string;
 }
 
@@ -63,3 +63,5 @@ export class NumberCountryDto {
   @IsString()
   type: string;
 }
+
+export type CrawlerDto = CreateCrawlerDto | NumberCountryDto;

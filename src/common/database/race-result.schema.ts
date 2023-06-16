@@ -7,6 +7,9 @@ export type RaceResultDocument = RaceResult & Document;
 export class RaceResult {
   _id: string;
 
+  @Prop({ type: String, required: true })
+  grandPrix: string;
+
   @Prop({ type: Number, required: true })
   pos: number;
 
@@ -28,8 +31,8 @@ export class RaceResult {
   @Prop({ type: Number, required: true })
   pts: number;
 
-  @Prop({ type: Number, required: true })
-  year: number;
+  @Prop({ type: String, required: true })
+  year: string;
 
   @Prop({
     type: Date,

@@ -16,8 +16,8 @@ export class Team {
   @Prop({ type: Number, required: true })
   pts: number;
 
-  @Prop({ type: Number, required: true })
-  year: number;
+  @Prop({ type: String, required: true })
+  year: string;
 
   @Prop({
     type: Date,

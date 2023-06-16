@@ -8,6 +8,7 @@ import TeamSchema, { Team } from 'src/common/database/teams.schema';
 import { MongooseModule } from '@nestjs/mongoose';
 import { RaceResult } from 'src/common/database';
 import RaceResultSchema from 'src/common/database/race-result.schema';
+import { RaceResultRepository } from 'src/common/repository/race-result.repository';
 
 @Module({
   imports: [
@@ -20,6 +21,6 @@ import RaceResultSchema from 'src/common/database/race-result.schema';
     ]),
   ],
   controllers: [CrawlController],
-  providers: [CrawlerService],
+  providers: [CrawlerService, RaceResultRepository],
 })
 export class CrawlerModule {}

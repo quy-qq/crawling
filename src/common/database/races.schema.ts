@@ -25,8 +25,8 @@ export class Race {
   @Prop({ type: String, required: true })
   time: string;
 
-  @Prop({ type: Number, required: true })
-  year: number;
+  @Prop({ type: String, required: true })
+  year: string;
 
   @Prop({
     type: Date,

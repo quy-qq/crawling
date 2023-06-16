@@ -8,6 +8,12 @@ import { MongooseModule } from '@nestjs/mongoose';
   imports: [
     MongooseModule.forRoot(
       'mongodb+srv://quynguyen:123123123@interview.jspzsau.mongodb.net/',
+      {
+        connectionFactory: (connection) => {
+          connection.plugin(require('mongoose-paginate-v2'));
+          return connection;
+        },
+      },
     ),
     CrawlerModule,
     HttpModule,
