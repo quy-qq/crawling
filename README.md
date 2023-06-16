@@ -1,6 +1,8 @@
 ## Installation Run source
 
 ```bash
+$ version node: V16.15.0
+$ version npm:9.7.1
 $ npm install
 ```
 
